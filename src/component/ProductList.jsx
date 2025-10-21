@@ -27,7 +27,7 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  // 🔹 Loading animation
+  // 🔹 Loading animation with logo
   if (loading)
     return (
       <motion.div
@@ -36,20 +36,19 @@ const ProductList = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Spinner */}
-        <motion.div
-          className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{
-            repeat: Infinity,
-            duration: 1,
-            ease: "linear",
-          }}
-        ></motion.div>
+        {/* Logo Image */}
+        <motion.img
+          src="/logo.png" 
+          alt="My-Shop Logo"
+          className="w-32 h-32 rounded-full shadow-lg object-cover mb-5 border-4 border-blue-500"
+          initial={{ scale: 0.9 }}
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         {/* Text Animation */}
         <motion.p
-          className="text-gray-600 text-lg mt-6 font-medium"
+          className="text-gray-600 text-lg font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 1.5, repeat: Infinity }}

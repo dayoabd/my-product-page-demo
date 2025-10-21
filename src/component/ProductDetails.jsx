@@ -18,7 +18,7 @@ const ProductDetails = () => {
       .catch((err) => console.error("Error fetching product:", err));
   }, [id]);
 
-  // 🔹 Enhanced Animated Loading Screen
+  // 🔹 Enhanced Animated Loading Screen with Logo
   if (!product)
     return (
       <motion.div
@@ -27,23 +27,28 @@ const ProductDetails = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Spinning Circle */}
-        <motion.div
-          className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{
-            repeat: Infinity,
-            duration: 1,
-            ease: "linear",
-          }}
-        ></motion.div>
+        {/* Logo Image */}
+        <motion.img
+          src="/logo.png" 
+          alt="My-Shop Logo"
+          className="w-32 h-32 rounded-full shadow-lg object-cover mb-5 border-4 border-blue-500"
+          initial={{ scale: 0.9 }}
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+
 
         {/* Loading Text */}
         <motion.p
-          className="text-gray-600 text-lg mt-6 font-medium"
+          className="text-gray-600 text-lg  font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         >
           Loading product details...
         </motion.p>
