@@ -24,10 +24,12 @@ export const CartProvider = ({ children }) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const totalItems = cartItems.reduce(
-    (acc, item) => acc + (item.quantity || 1),
-    0
-  );
+  // ✅ Add this function
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <CartContext.Provider
@@ -35,9 +37,10 @@ export const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
-        totalItems,
+        clearCart, // ✅ now defined
         isCartOpen,
         setIsCartOpen,
+        totalItems,
       }}
     >
       {children}

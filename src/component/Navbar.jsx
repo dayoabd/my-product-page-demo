@@ -22,7 +22,12 @@ const Navbar = ({ onCartClick }) => {
           >
             Home
           </Link>
-
+            <Link
+            to="/"
+            className="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:left-0 after:bottom-[-2px] after:bg-blue-600 hover:after:w-full after:transition-all"
+          >
+            About
+          </Link>
           <button
             onClick={onCartClick}
             className="relative flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
