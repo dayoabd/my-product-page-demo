@@ -6,7 +6,7 @@ const Navbar = ({ onCartClick }) => {
   const { totalItems } = useCart();
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+    <nav className="fixed top-0 left-0 w-full bg-white/100 backdrop-blur-md shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <Link
           to="/"
@@ -27,9 +27,7 @@ const Navbar = ({ onCartClick }) => {
             onClick={onCartClick}
             className="relative flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
           >
-            <span role="img" aria-label="cart">
-              🛒
-            </span>
+            🛒
             <span>Cart</span>
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-[1px] rounded-full">
